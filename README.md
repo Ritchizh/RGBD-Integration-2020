@@ -2,6 +2,8 @@
 Applying Open3D functions to integrate experimentally measured color and depth frames into a 3D object.
 Data were obtained with Intel RealSense depth camera.
 
+Open3d version: 0.9.0.0
+
 # List of files:
 - **main__TSDF_Integrate__color_depth.py** - run this Python script to perform integration of color and depth frames from Test_data folder
 - **main__TSDF_Integrate__depth_only.py** - run this Python script to perform integration of depth frames from Test_data folder
