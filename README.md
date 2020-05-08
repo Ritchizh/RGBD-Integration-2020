@@ -15,8 +15,4 @@ Data were obtained with Intel RealSense depth camera.
 - ICP registration: http://www.open3d.org/docs/release/tutorial/Basic/icp_registration.html
 
 # Possible application:
-<img width="917" alt="Slide_00" src="https://user-images.githubusercontent.com/18049634/81414205-48ea9b00-914f-11ea-9e2b-92a10477da80.png">
-<img width="975" alt="Slide_01" src="https://user-images.githubusercontent.com/18049634/81414666-007fad00-9150-11ea-8f45-115ebacd2d6d.png">
-<img width="975" alt="Slide_02" src="https://user-images.githubusercontent.com/18049634/81414706-0c6b6f00-9150-11ea-8c2e-f1cdcb8d42ed.png">
-<img width="975" alt="Slide_03" src="https://user-images.githubusercontent.com/18049634/81414743-18efc780-9150-11ea-9acd-ce54bcacf75a.png">
-<img width="975" alt="Slide_04" src="https://user-images.githubusercontent.com/18049634/81414769-22792f80-9150-11ea-97b9-da6bc292c1c0.png">
+<img width="917" src="https://github.com/Ritchizh/RGBD-Integration/blob/master/readme_images/Slide_00.png">
