@@ -7,6 +7,11 @@ Data were obtained with Intel RealSense depth camera.
 # List of files:
 - **main__TSDF_Integrate__color_depth.py** - run this Python script to perform integration of color and depth frames from Test_data folder
 - **main__TSDF_Integrate__depth_only.py** - run this Python script to perform integration of depth frames from Test_data folder
+- **_background_substruction_v2.py** - Segmentation relies on OpenCV morphological filter (see docs: https://docs.opencv.org/4.x/d9/d61/tutorial_py_morphological_ops.html)
+**!** A .bag record of the background should be captured along with the subject's data.
+An averaged background image is removed from the subject's frames. Filters thresholds are selected empirically.
+Depth outside the subject's range is cut.
+
 
 - **trajectory_io.py** - Open3D class to generate Camera poses in the necessary format
 - **Test_data** - Folder with depth (and color) frames (43 MB). Depth frames must be '.png' of type 'np.uint16'. 
