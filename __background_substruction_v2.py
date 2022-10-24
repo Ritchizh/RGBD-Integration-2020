@@ -37,6 +37,7 @@ fgbg = cv2.bgsegm.createBackgroundSubtractorMOG()
 # fgbg.setHistory(200)
 # fgbg.setBackgroundRatio(0.7)
 
+##-------- Play the Background .bag record: ----------##
 pipeline = rs.pipeline()
 config = rs.config()
 
@@ -57,7 +58,7 @@ for i in range(10):
     
     fgmask = fgbg.apply(colorImage)
     
-    bg = (bg*i + colorImage)/(i+1)
+    bg = (bg*i + colorImage)/(i+1) # Get an average backround image
     bgImage = np.uint8(bg)
 
 pipeline.stop()
@@ -66,6 +67,7 @@ cv2.namedWindow('RS_streams', cv2.WINDOW_AUTOSIZE)
 cv2.namedWindow('Mask', cv2.WINDOW_AUTOSIZE)
 
 
+##-------- Play the Subject .bag record ----------##
 pipeline = rs.pipeline()
 config = rs.config()
 
@@ -97,12 +99,12 @@ while(True):
     maskBG = cv2.absdiff(colorImage, bgImage)    
     maskBG = np.uint8(np.sum(maskBG, axis=2))
     
-    maskBG = cv2.threshold(maskBG, 30, 1, cv2.THRESH_BINARY)[1]
+    maskBG = cv2.threshold(maskBG, 30, 1, cv2.THRESH_BINARY)[1] # Thresholds are selected empirically
     
     maskBG = cv2.morphologyEx(maskBG, cv2.MORPH_CLOSE, kernel)
     maskBG = cv2.morphologyEx(maskBG, cv2.MORPH_OPEN, kernel)    
     
-    maskDepth = (depth > 300) & (depth < 2000)
+    maskDepth = (depth > 300) & (depth < 2000) # Cut depth outside the distance range to isolate subject
     maskDepth = 255*np.uint8(maskDepth)
     maskDepth = cv2.resize(maskDepth, dsize=(imWScaled, imHScaled), interpolation=cv2.INTER_LINEAR)    
     maskDepth = maskDepth > 127
