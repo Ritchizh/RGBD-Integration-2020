@@ -66,7 +66,7 @@ def execute_global_registration(source_down, target_down, source_fpfh,
             o3d.pipelines.registration.CorrespondenceCheckerBasedOnEdgeLength(0.9),
             o3d.pipelines.registration.CorrespondenceCheckerBasedOnDistance(
                 distance_threshold)
-        ], o3d.pipelines.registration.RANSACConvergenceCriteria(100000, 0.999))
+        ], o3d.pipelines.registration.RANSACConvergenceCriteria(100000, 0.999)) #Convergence criteria should be adjusted to your data
     return result
 
 def refine_registration(source, target, voxel_size):
@@ -165,7 +165,7 @@ o3d.visualization.draw_geometries([pcd_cropped_0_temp, pcd_cropped_1_temp])
 
 
 # Downsample pointclouds:
-voxel_size  = 0.005   # 1cm
+voxel_size  = 0.005   # 5 mm, since the object is small
 trunc       = np.inf
 
 source_down, source_fpfh = preprocess_point_cloud(source, voxel_size)
